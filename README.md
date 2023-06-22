@@ -5,7 +5,7 @@ Weather website using API. Using search feature to select city provides live wea
 
 ## Live website
 
-You can see it live by clicking [here]([https://timolansberry.github.io/](https://timolansberry.github.io/Weather-Website-API/)).
+You can see it live by clicking [here]([(https://timolansberry.github.io/Weather-Website-API/)]).
 
 [To open in a new tab press CTRL+click (on Windows and Linux) or CMD+click (on MacOS)]
 
