@@ -194,7 +194,7 @@ body {
   font-family: "Material Symbols Rounded";
   font-style: normal;
   font-weight: 400;
-  src: url(../material-symbol-rounded.woff2) format("woff2"); /* adjusted folder path*/
+  src: url("../material-symbol-rounded.woff2") format("woff2"); /* adjusted folder path*/
 }
 
 .m-icon {
@@ -390,8 +390,49 @@ border-block-end: 1px solid var(--outline);
   color: var(--on-surface-variant-2);
 }
 
+.search-field::-webkit-search-cancel-button{
+  display: none;
+}
 
+.search-wrapper .leading-icon{
+  position: absolute;
+  top:50%;
+  left: 28px;
+  transform: translate(-50%, -50%);
+}
 
+.search-wrapper > .m-icon{
+  display: none;
+}
+
+.search-wrapper .icon-btn{
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.search-view .view-list{
+  padding-block: 8px 16px;
+}
+
+.search-view .view-item{
+  position: relative;
+  height: 56px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  padding-inline: 16px 24px;
+}
+
+.search-view .view-item :is(.m-icon, .item-subtitle){
+  color: var(--on-surface-variant);
+}
+
+.search-view .view-item .item-link{
+  position: absolute;
+  inset: 0;
+  box-shadow: none;
+}
 
 
 
