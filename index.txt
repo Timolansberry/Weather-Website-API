@@ -12,8 +12,14 @@ placeholder = Search city...
 
 <span class="m-icon">arrow_back</span>
 
+<span class="m-icon">location_on/span>
+
 London
-GB
+State of London, GB
+
+<span class="m-icon icon">search</span>
+
+<span class="m-icon">my_location</span>
 
 Current Location
 
