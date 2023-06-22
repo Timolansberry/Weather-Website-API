@@ -194,9 +194,14 @@ body {
   font-family: "Material Symbols Rounded";
   font-style: normal;
   font-weight: 400;
-  src: url("../material-symbol-rounded.woff2") format("woff2"); /* adjusted folder path*/
+  src: url("material-symbol-rounded.woff2") format("woff2"); /* adjusted folder path*/
 }
+/* didnt work    
+"../material-symbol-rounded.woff2" 
+"material-symbol-rounded.woff2"      trying
 
+
+*/
 .m-icon {
   font-family: "Material Symbols Rounded";
   font-weight: normal;
