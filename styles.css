@@ -275,7 +275,7 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary);
+  background-color: #7BCBFE; /* adjusted color var(--primary) */
   color: var(--on-primary);
   height: 48px;
   line-height: 48px;
@@ -1131,4 +1131,5 @@ article.container::before {
   .highlight-list {
     grid-template-columns: repeat(4, 1fr);
   }
+  
 }
