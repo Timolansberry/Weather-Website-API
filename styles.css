@@ -196,10 +196,12 @@ body {
   font-weight: 400;
   src: url("material-symbol-rounded.woff2") format("woff2"); /* adjusted folder path*/
 }
-/* didnt work    
-"../material-symbol-rounded.woff2" 
-"material-symbol-rounded.woff2"      trying
+/* 
+"../material-symbol-rounded.woff2" didnt work
 
+"material-symbol-rounded.woff2"      
+worked because "material-symbol-rounded.woff2" file is in the same 
+folder as my index.html file in github
 
 */
 .m-icon {
