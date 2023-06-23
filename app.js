@@ -115,9 +115,7 @@ export const updateWeather = function (lat, lon) {
     currentLocationBtn.removeAttribute("disabled");
   }
 
-  /**
-   * CURRENT WEATHER SECTION
-   */
+  /* CURRENT WEATHER SECTION */
   fetchData(url.currentWeather(lat, lon), function (currentWeather) {
 
     const {
@@ -168,9 +166,7 @@ export const updateWeather = function (lat, lon) {
 
     currentWeatherSection.appendChild(card);
 
-    /**
-     * TODAY'S HIGHLIGHTS
-     */
+    /* TODAY'S HIGHLIGHTS */
     fetchData(url.airPollution(lat, lon), function (airPollution) {
 
       const [{
@@ -315,9 +311,7 @@ export const updateWeather = function (lat, lon) {
 
     });
 
-    /**
-     * 24H FORECAST SECTION
-     */
+    /* 24H FORECAST SECTION */
     fetchData(url.forecast(lat, lon), function (forecast) {
 
       const {
@@ -383,9 +377,7 @@ export const updateWeather = function (lat, lon) {
 
       }
 
-      /**
-       * 5 DAY FORECAST SECTION
-       */
+      /* 5 DAY FORECAST SECTION */
       forecastSection.innerHTML = `
         <h2 class="title-2" id="forecast-label">5 Days Forecast</h2>
 
