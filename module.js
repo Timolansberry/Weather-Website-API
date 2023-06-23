@@ -81,19 +81,19 @@ export const aqiText = {
     message: "Air quality is considered satisfactory and air pollution poses little or no risk."
   },
   2: {
-    level: "Proper",
-    message: "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are especially sensitive to air pollution."
+    level: "Fair",
+    message: "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution."
   },
   3: {
     level: "Moderate",
     message: "Members of sensitive groups may experience health effects. The general public is not likely to be affected."
   },
   4: {
-    level: "Bad",
-    message: "Everyone can start to experience health effects; members of sensitive groups can experience more serious health effects."
+    level: "Poor",
+    message: "Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects."
   },
   5: {
-    level: "Very Bad",
-    message: "Health advisories about emergency conditions. The entire population is most likely to be affected."
+    level: "Very Poor",
+    message: "Health warnings of emergency conditions. The entire population is more likely to be affected."
   }
 }
