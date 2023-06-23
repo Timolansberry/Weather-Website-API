@@ -13,18 +13,14 @@ const addEventOnElements = function (elements, eventType, callback) {
   for (const element of elements) element.addEventListener(eventType, callback);
 }
 
-/**
- * Toggle search in mobile devices
- */
+/* Toggle search in mobile devices */
 const searchView = document.querySelector("[data-search-view]");
 const searchTogglers = document.querySelectorAll("[data-search-toggler]");
 
 const toggleSearch = () => searchView.classList.toggle("active");
 addEventOnElements(searchTogglers, "click", toggleSearch);
 
-/**
- * SEARCH INTEGRATION
- */
+/* SEARCH INTEGRATION */
 const searchField = document.querySelector("[data-search-field]");
 const searchResult = document.querySelector("[data-search-result]");
 
@@ -201,25 +197,25 @@ export const updateWeather = function (lat, lon) {
               <ul class="card-list">
 
                 <li class="card-item">
-                  <p class="title-1">${pm2_5.toPrecision(3)}</p>
+                  <p class="title-1">${pm2_5.toFixed(1)}</p>
 
                   <p class="label-1">PM<sub>2.5</sub></p>
                 </li>
 
                 <li class="card-item">
-                  <p class="title-1">${so2.toPrecision(3)}</p>
+                  <p class="title-1">${so2.toFixed(1)}</p>
 
                   <p class="label-1">SO<sub>2</sub></p>
                 </li>
 
                 <li class="card-item">
-                  <p class="title-1">${no2.toPrecision(3)}</p>
+                  <p class="title-1">${no2.toFixed(1)}</p>
 
                   <p class="label-1">NO<sub>2</sub></p>
                 </li>
 
                 <li class="card-item">
-                  <p class="title-1">${o3.toPrecision(3)}</p>
+                  <p class="title-1">${o3.toFixed(1)}</p>
 
                   <p class="label-1">O<sub>3</sub></p>
                 </li>
