@@ -1,28 +1,29 @@
 'use strict';
 
 export const weekDayNames = [
-  "Domingo",
-  "Segunda",
-  "Terça",
-  "Quarta",
-  "Quinta",
-  "Sexta",
-  "Sabado"
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+    "Friday",
+    "Saturday"
 ];
 
 export const monthNames = [
-  "Jan",
-  "Fev",
-  "Mar",
-  "Abr",
-  "Mai",
-  "Jun",
-  "Jul",
-  "Ago",
-  "Set",
-  "Out",
-  "Nov",
-  "Dez"
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+
 ];
 
 /**
@@ -76,23 +77,23 @@ export const mps_to_kmh = mps => {
 
 export const aqiText = {
   1: {
-    level: "Bom",
-    message: "A qualidade do ar é considerada satisfatória e a poluição do ar apresenta pouco ou nenhum risco."
+    level: "Good",
+    message: "Air quality is considered satisfactory and air pollution poses little or no risk."
   },
   2: {
-    level: "Adequada",
-    message: "A qualidade do ar é aceitável; no entanto, para alguns poluentes, pode haver uma preocupação moderada com a saúde para um número muito pequeno de pessoas que são especialmente sensíveis à poluição do ar."
+    level: "Proper",
+    message: "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are especially sensitive to air pollution."
   },
   3: {
-    level: "Moderada",
-    message: "Membros de grupos sensíveis podem experienciar efeitos na saúde. O público em geral não é provável de ser afetado."
+    level: "Moderate",
+    message: "Members of sensitive groups may experience health effects. The general public is not likely to be affected."
   },
   4: {
-    level: "Ruim",
-    message: "Todos podem começar a experimentar efeitos na saúde; membros de grupos sensíveis podem experimentar efeitos na saúde mais graves."
+    level: "Bad",
+    message: "Everyone can start to experience health effects; members of sensitive groups can experience more serious health effects."
   },
   5: {
-    level: "Muito Ruim",
-    message: "Avisos de saúde sobre condições de emergência. É mais provável que toda a população seja afetada."
+    level: "Very Bad",
+    message: "Health advisories about emergency conditions. The entire population is most likely to be affected."
   }
 }
