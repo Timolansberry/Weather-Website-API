@@ -1,6 +1,6 @@
 'use strict';
 
-const api_key = "4f2fb1d5ba436335ef6f29a2c9992e05"; //declared api constant
+const api_key = "3a40de66eab3048053e9f94309acfe1d"; //declared api constant
 
 /**
  * Fetch data from server
