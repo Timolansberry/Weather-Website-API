@@ -66,11 +66,11 @@ searchField.addEventListener("input", function () {     // adds an input event l
             <a href="#/weather?lat=${lat}&lon=${lon}" class="item-link has-state" aria-label="${name} weather" data-search-toggler></a>
           `;
 
-          searchResult.querySelector("[data-search-list]").appendChild(searchItem);
+          searchResult.querySelector("[data-search-list]").appendChild(searchItem); //appends the searchItem element to the search result list.
           items.push(searchItem.querySelector("[data-search-toggler]"));
         }
 
-        addEventOnElements(items, "click", function () {
+        addEventOnElements(items, "click", function () {      //adds event listeners to the dynamically created elements (items) using the addEventOnElements function. In this case, it listens for a "click" event and executes a callback function that calls toggleSearch() and removes the "active" class from searchResult
           toggleSearch();
           searchResult.classList.remove("active");
         })
@@ -81,7 +81,7 @@ searchField.addEventListener("input", function () {     // adds an input event l
 });
 
 
-const container = document.querySelector("[data-container]");
+const container = document.querySelector("[data-container]");                //selects various DOM elements using document.querySelector and assigns them to corresponding variables: container, loading, currentLocationBtn, and errorContent.
 const loading = document.querySelector("[data-loading]");
 const currentLocationBtn = document.querySelector("[data-current-location-btn]");
 const errorContent = document.querySelector("[data-error-content]");
@@ -92,7 +92,7 @@ const errorContent = document.querySelector("[data-error-content]");
  * @param {number} lat Latitude
  * @param {number} lon Longitude
  */
-export const updateWeather = function (lat, lon) {
+export const updateWeather = function (lat, lon) {          //updateWeather function is exported as a named export. It takes the lat (latitude) and lon (longitude) as parameters.
 
   loading.style.display = "grid";
   container.style.overflowY = "hidden";
@@ -105,7 +105,7 @@ export const updateWeather = function (lat, lon) {
   const forecastSection = document.querySelector("[data-5-day-forecast]");
 
   currentWeatherSection.innerHTML = "";
-  highlightSection.innerHTML = "";
+  // highlightSection.innerHTML = "";
   hourlySection.innerHTML = "";
   forecastSection.innerHTML = "";
 
