@@ -154,11 +154,11 @@ export const updateWeather = function (lat, lon) {
         <li class="meta-item">
           <span class="m-icon">location_on</span>
 
-          <p class="title-3 meta-text" data-location>${state || ""} ${country}</p>
+          <p class="title-3 meta-text" data-location></p>
         </li>
 
       </ul>
-    `; //added the ${state || ""} ${country} above
+    `;
 
     fetchData(url.reverseGeo(lat, lon), function ([{ name, country }]) {
       card.querySelector("[data-location]").innerHTML = `${name}, ${country}`
