@@ -105,7 +105,7 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
   const forecastSection = document.querySelector("[data-5-day-forecast]");
 
   currentWeatherSection.innerHTML = "";
-  // highlightSection.innerHTML = "";
+  highlightSection.innerHTML = "";
   hourlySection.innerHTML = "";
   forecastSection.innerHTML = "";
 
