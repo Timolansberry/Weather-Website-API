@@ -1,4 +1,4 @@
-'use strict';
+'use strict';     //enforcesstricter parsing and error handling in javascript
 
 const api_key = "3a40de66eab3048053e9f94309acfe1d"; //declared api constant
 

@@ -178,7 +178,7 @@ export const updateWeather = function (lat, lon) {
       card.classList.add("card", "card-lg");
 
       card.innerHTML = `
-        <h2 class="title-2" id="highlights-label">Todays Highlights</h2>
+        <h2 class="title-2" id="highlights-label">Today's Highlights</h2>
 
         <div class="highlight-list">
 
@@ -230,6 +230,7 @@ export const updateWeather = function (lat, lon) {
 
             <h3 class="title-3">Sunrise & Sunset</h3>
 
+            <div class="wrapper">
             <div class="card-list">
 
               <div class="card-item">
@@ -253,7 +254,7 @@ export const updateWeather = function (lat, lon) {
               </div>
 
             </div>
-
+            </div>
           </div>
 
           <div class="card card-sm highlight-card">
