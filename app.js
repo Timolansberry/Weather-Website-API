@@ -1,7 +1,7 @@
 'use strict';
 
-import { fetchData, url } from "./api.js";
-import * as module from "./module.js";
+import { fetchData, url } from "./api.js";                            // code imports two modules: fetchData and url from a file named "api.js"
+import * as module from "./module.js";                                // imports all exports from a file named "module.js" and stores them in a variable named "module"
 
 /**
  * Add event listener on multiple elements
@@ -9,34 +9,34 @@ import * as module from "./module.js";
  * @param {string} eventType Event Type e.g.: "click", "mouseover"
  * @param {Function} callback Callback function
  */
-const addEventOnElements = function (elements, eventType, callback) {
-  for (const element of elements) element.addEventListener(eventType, callback);
+const addEventOnElements = function (elements, eventType, callback) {            //function named addEventOnElements that takes three parameters: elements, eventType, and callback.
+  for (const element of elements) element.addEventListener(eventType, callback); ///for loop that iterates through the elements array and adds an event listener to each element.
 }
 
 /* Toggle search in mobile devices */
-const searchView = document.querySelector("[data-search-view]");
-const searchTogglers = document.querySelectorAll("[data-search-toggler]");
+const searchView = document.querySelector("[data-search-view]");              //searchView represents the search view element, 
+const searchTogglers = document.querySelectorAll("[data-search-toggler]");    //searchTogglers represents the elements that trigger the search view toggle.
 
-const toggleSearch = () => searchView.classList.toggle("active");
-addEventOnElements(searchTogglers, "click", toggleSearch);
+const toggleSearch = () => searchView.classList.toggle("active");         //defines a function named toggleSearch, which toggles the "active" class on the searchView element when called.
+addEventOnElements(searchTogglers, "click", toggleSearch);                 //addEventOnElements function is used to add a click event listener to each element in the searchTogglers NodeList. When clicked, it invokes the toggleSearch function, toggling the visibility of the search view.
 
 /* SEARCH INTEGRATION */
-const searchField = document.querySelector("[data-search-field]");
+const searchField = document.querySelector("[data-search-field]");         //selects the DOM elements related to the search field and search results, including searchField and searchResult
 const searchResult = document.querySelector("[data-search-result]");
 
-let searchTimeout = null;
+let searchTimeout = null;                        // defines a variable named searchTimeout and sets it to null
 const serachTimeoutDuration = 500;
 
-searchField.addEventListener("input", function () {
+searchField.addEventListener("input", function () {     // adds an input event listener to the searchField element. When the input event occurs (i.e., the user types or deletes text), the attached callback function is executed.
 
   searchTimeout ?? clearTimeout(searchTimeout);
 
-  if (!searchField.value) {
-    searchResult.classList.remove("active");
-    searchResult.innerHTML = "";
-    searchField.classList.remove("searching");
+  if (!searchField.value) {                         //if the search field is empty, the search result is hidden and the search field is no longer in the "searching" state. (Inside the input event callback function, the code checks if searchField has a value. )
+    searchResult.classList.remove("active");     //If it doesn't have a value, it removes the "active" class from searchResult
+    searchResult.innerHTML = "";               //and clears the innerHTML of searchResult. (its's content)
+    searchField.classList.remove("searching");  //It also removes the "searching" class from searchField.
   } else {
-    searchField.classList.add("searching");
+    searchField.classList.add("searching");     //If searchField has a value, the code adds the "searching" class to searchField.
   }
 
   if (searchField.value) {
