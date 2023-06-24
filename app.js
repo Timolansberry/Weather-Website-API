@@ -20,12 +20,14 @@ const searchTogglers = document.querySelectorAll("[data-search-toggler]");    //
 const toggleSearch = () => searchView.classList.toggle("active");         //defines a function named toggleSearch, which toggles the "active" class on the searchView element when called.
 addEventOnElements(searchTogglers, "click", toggleSearch);                 //addEventOnElements function is used to add a click event listener to each element in the searchTogglers NodeList. When clicked, it invokes the toggleSearch function, toggling the visibility of the search view.
 
+
+
 /* SEARCH INTEGRATION */
 const searchField = document.querySelector("[data-search-field]");         //selects the DOM elements related to the search field and search results, including searchField and searchResult
 const searchResult = document.querySelector("[data-search-result]");
 
 let searchTimeout = null;                        // defines a variable named searchTimeout and sets it to null
-const serachTimeoutDuration = 500;
+const searchTimeoutDuration = 500;
 
 searchField.addEventListener("input", function () {     // adds an input event listener to the searchField element. When the input event occurs (i.e., the user types or deletes text), the attached callback function is executed.
 
@@ -75,7 +77,7 @@ searchField.addEventListener("input", function () {     // adds an input event l
           searchResult.classList.remove("active");
         })
       });
-    }, serachTimeoutDuration);
+    }, searchTimeoutDuration);
   }
 
 });
@@ -312,6 +314,11 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
       highlightSection.appendChild(card);     //card and air pollution-related elements) are appended to their respective parent elements (currentWeatherSection and highlightSection) to render the weather data on the page.
 
     });
+
+
+
+
+
 
     /* 24H FORECAST SECTION */
     fetchData(url.forecast(lat, lon), function (forecast) {        //calls the fetchData function with the url.forecast(lat, lon) to retrieve the forecast data for the specified latitude and longitude.
