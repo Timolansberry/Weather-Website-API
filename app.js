@@ -94,7 +94,7 @@ const errorContent = document.querySelector("[data-error-content]");
  */
 export const updateWeather = function (lat, lon) {          //updateWeather function is exported as a named export. It takes the lat (latitude) and lon (longitude) as parameters.
 
-  loading.style.display = "grid";
+  loading.style.display = "block";
   container.style.overflowY = "hidden";
   container.classList.remove("fade-in");
   errorContent.style.display = "none";
