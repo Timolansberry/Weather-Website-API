@@ -94,42 +94,43 @@ const errorContent = document.querySelector("[data-error-content]");
  */
 export const updateWeather = function (lat, lon) {          //updateWeather function is exported as a named export. It takes the lat (latitude) and lon (longitude) as parameters.
 
-  loading.style.display = "grid";
-  container.style.overflowY = "hidden";
-  container.classList.remove("fade-in");
-  errorContent.style.display = "none";
+  loading.style.display = "grid";                //hides the loading element
+  container.style.overflowY = "hidden";          //sets the overflowY property of the container element to "hidden",
+  container.classList.remove("fade-in");        //removes the "fade-in" class from container
+  errorContent.style.display = "none";          //hides the errorContent element.
 
+                                                                                        //code selects specific elements within the document using document.querySelector and assigns them to corresponding variables: currentWeatherSection, highlightSection, hourlySection, and forecastSection.
   const currentWeatherSection = document.querySelector("[data-current-weather]");
   const highlightSection = document.querySelector("[data-highlights]");
   const hourlySection = document.querySelector("[data-hourly-forecast]");
   const forecastSection = document.querySelector("[data-5-day-forecast]");
 
-  currentWeatherSection.innerHTML = "";
+  currentWeatherSection.innerHTML = "";            //inner HTML content of the selected elements is cleared by assigning an empty string to their innerHTML properties
   // highlightSection.innerHTML = "";
   hourlySection.innerHTML = "";
   forecastSection.innerHTML = "";
 
-  if (window.location.hash === "#/current-location") {
-    currentLocationBtn.setAttribute("disabled", "");
+  if (window.location.hash === "#/current-location") {    // checks the value of window.location.hash
+    currentLocationBtn.setAttribute("disabled", "");      //If it equals #/current-location, it sets the disabled attribute on the currentLocationBtn element.
   } else {
-    currentLocationBtn.removeAttribute("disabled");
+    currentLocationBtn.removeAttribute("disabled");       //Otherwise, it removes the disabled attribute.
   }
 
   /* CURRENT WEATHER SECTION */
-  fetchData(url.currentWeather(lat, lon), function (currentWeather) {
+  fetchData(url.currentWeather(lat, lon), function (currentWeather) {   //makes use of the fetchData function to fetch the current weather data using the url.currentWeather(lat, lon) URL. The fetched data is passed to the callback function. 
 
-    const {
+    const {                                                    //Inside the callback function, the code extracts relevant data from the currentWeather object, such as weather description, temperature, date, location, etc.
       weather,
       dt: dateUnix,
       sys: { sunrise: sunriseUnixUTC, sunset: sunsetUnixUTC },
       main: { temp, feels_like, pressure, humidity },
       visibility,
       timezone
-    } = currentWeather
+    } = currentWeather                             //extracted data comes from currentWeather
     const [{ description, icon }] = weather;
 
     const card = document.createElement("div");
-    card.classList.add("card", "card-lg", "current-weather-card");
+    card.classList.add("card", "card-lg", "current-weather-card"); //dynamically creates an HTML structure using the extracted data and assigns it to the innerHTML property of the card element. The card element represents the current weather information.
 
     card.innerHTML = `
       <h2 class="title-2 card-title">Now</h2>
@@ -167,10 +168,10 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
     currentWeatherSection.appendChild(card);
 
     /* TODAY'S HIGHLIGHTS */
-    fetchData(url.airPollution(lat, lon), function (airPollution) {
+    fetchData(url.airPollution(lat, lon), function (airPollution) {     //code uses the fetchData function again to fetch air pollution data using the url.airPollution(lat, lon) URL. The fetched data is passed to the callback function.
 
-      const [{
-        main: { aqi },
+      const [{                                   //Inside the callback function, the code extracts air pollution data and creates a new HTML structure to display it.
+        main: { aqi }, 
         components: { no2, o3, so2, pm2_5 }
       }] = airPollution.list;
 
@@ -308,17 +309,19 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
         </div>
       `;
 
-      highlightSection.appendChild(card);
+      highlightSection.appendChild(card);     //card and air pollution-related elements) are appended to their respective parent elements (currentWeatherSection and highlightSection) to render the weather data on the page.
 
     });
 
     /* 24H FORECAST SECTION */
-    fetchData(url.forecast(lat, lon), function (forecast) {
+    fetchData(url.forecast(lat, lon), function (forecast) {        //calls the fetchData function with the url.forecast(lat, lon) to retrieve the forecast data for the specified latitude and longitude.
+                                                                   //The fetchData function executes a callback function that receives the forecast data.
+
 
       const {
         list: forecastList,
         city: { timezone }
-      } = forecast;
+      } = forecast;                                             //The forecast data object contains an array of forecasted weather data for the next 24 hours (forecastList) and the timezone of the city (city.timezone).
 
       hourlySection.innerHTML = `
         <h2 class="title-2">Today at</h2>
@@ -328,12 +331,14 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
 
           <ul class="slider-list" data-wind></ul>
         </div>
-      `;
+      `;                                              //hourlySection element in the HTML is updated with the necessary structure for the forecast section.
 
-      for (const [index, data] of forecastList.entries()) {
+      for (const [index, data] of forecastList.entries()) {    //A loop iterates over each forecast entry in the forecastList array using the entries() method. 
 
-        if (index > 7) break;
+        if (index > 7) break;                        //The loop breaks if the index exceeds 7, limiting the display to the next 8 hours.
 
+                                                   //he forecast data, such as the date and time (dateTimeUnix), temperature (temp), weather icon (icon), weather description (description), wind direction (windDirection), and wind speed (windSpeed), are extracted from the current forecast entry.
+                                                   //For each forecast entry, the necessary HTML elements are created dynamically using document.createElement.
         const {
           dt: dateTimeUnix,
           main: { temp },
@@ -341,8 +346,8 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
           wind: { deg: windDirection, speed: windSpeed }
         } = data
         const [{ icon, description }] = weather
-
-        const tempLi = document.createElement("li");
+                                                           //Two li elements are created: tempLi for displaying temperature information and windLi for displaying wind information.
+        const tempLi = document.createElement("li");          
         tempLi.classList.add("slider-item");
 
         tempLi.innerHTML = `
@@ -357,7 +362,10 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
 
           </div>
         `;
-        hourlySection.querySelector("[data-temp]").appendChild(tempLi);
+
+                                                                                    // above and below this line, The inner HTML of each li element is set to the corresponding forecast data, including the time, weather icon, temperature, and wind information.
+
+        hourlySection.querySelector("[data-temp]").appendChild(tempLi);             //The tempLi and windLi elements are appended to their respective ul elements inside the hourlySection element
 
         const windLi = document.createElement("li");
         windLi.classList.add("slider-item");
@@ -374,7 +382,7 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
 
         </div>
         `;
-        hourlySection.querySelector("[data-wind]").appendChild(windLi);
+        hourlySection.querySelector("[data-wind]").appendChild(windLi);           //The tempLi and windLi elements are appended to their respective ul elements inside the hourlySection element
 
       }
 
@@ -385,11 +393,11 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
         <div class="card card-lg forecast-card">
           <ul data-forecast-list></ul>
         </div>
-      `;
+      `;                                           //code updates the forecastSection element in the HTML with the necessary structure for the forecast section. It includes a title and a card container to hold the forecast data.
 
-      for (let i = 7, len = forecastList.length; i < len; i += 8) {
+      for (let i = 7, len = forecastList.length; i < len; i += 8) {     //code then enters a loop starting from index 7 and increments by 8 in each iteration. This loop iterates over the forecast data to extract the forecast for each day in the 5-day period.
 
-        const {
+        const {                                     //Within each iteration, the code extracts the necessary forecast data such as the maximum temperature (temp_max), weather icon (icon), weather description (description), and date and time (dt_txt) for the current forecast entry.
           main: { temp_max },
           weather,
           dt_txt
@@ -397,9 +405,9 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
         const [{ icon, description }] = weather
         const date = new Date(dt_txt);
 
-        const li = document.createElement("li");
+        const li = document.createElement("li");                 //A new li element is created to represent each forecast entry.
         li.classList.add("card-item");
-
+                                                                  //below this The inner HTML of the li element is set to display the forecast information, including the weather icon, temperature, date, and day of the week.
         li.innerHTML = `
           <div class="icon-wrapper">
             <img src="./assets/images/weather_icons/${icon}.png" width="36" height="36" alt="${description}"
@@ -414,17 +422,17 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
 
           <p class="label-1">${module.weekDayNames[date.getUTCDay()]}</p>
         `;
-        forecastSection.querySelector("[data-forecast-list]").appendChild(li);
+        forecastSection.querySelector("[data-forecast-list]").appendChild(li);   //The li element is appended to the ul element inside the forecastSection element.
 
       }
 
-      loading.style.display = "none";
-      container.style.overflowY = "overlay";
-      container.classList.add("fade-in");
+      loading.style.display = "none";              //After the loop completes, the code hides the loading indicator, 
+      container.style.overflowY = "overlay";       //enables vertical scrolling for the container element
+      container.classList.add("fade-in");          //adds a fade-in effect to the container element to reveal the forecast section.
     });
 
-  });
+  });                                          //The fetchData function callbacks are closed, and the updateWeather function ends.
 
 }
 
-export const error404 = () => errorContent.style.display = "flex";
+export const error404 = () => errorContent.style.display = "flex";      //error404 function defined, which sets the display property of the errorContent element to "flex" to show a 404 error message.
