@@ -40,13 +40,13 @@ searchField.addEventListener("input", function () {     // adds an input event l
   }
 
   if (searchField.value) {
-    searchTimeout = setTimeout(() => {
-      fetchData(url.geo(searchField.value), function (locations) {
+    searchTimeout = setTimeout(() => {            //sets a new timeout using setTimeout to delay the search request. 
+      fetchData(url.geo(searchField.value), function (locations) {      //Inside the timeout callback function, the code fetches data based on the search field value using the fetchData function. The url.geo(searchField.value) represents the URL for fetching geolocation data based on the search query.
         searchField.classList.remove("searching");
         searchResult.classList.add("active");
         searchResult.innerHTML = `
           <ul class="view-list" data-search-list></ul>
-        `;
+        `;                                         //sets the inner HTML content of the search result element to a new list structure.
 
         const /** {NodeList} | [] */ items = [];
 
@@ -154,11 +154,11 @@ export const updateWeather = function (lat, lon) {
         <li class="meta-item">
           <span class="m-icon">location_on</span>
 
-          <p class="title-3 meta-text" data-location></p>
+          <p class="title-3 meta-text" data-location>${state || ""} ${country}</p>
         </li>
 
       </ul>
-    `;
+    `; //added the ${state || ""} ${country} above
 
     fetchData(url.reverseGeo(lat, lon), function ([{ name, country }]) {
       card.querySelector("[data-location]").innerHTML = `${name}, ${country}`
