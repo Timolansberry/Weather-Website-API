@@ -131,6 +131,8 @@ export const updateWeather = function (lat, lon) {          //updateWeather func
     } = currentWeather                             //extracted data comes from currentWeather
     const [{ description, icon }] = weather;
 
+    
+
     const card = document.createElement("div");
     card.classList.add("card", "card-lg", "current-weather-card"); //dynamically creates an HTML structure using the extracted data and assigns it to the innerHTML property of the card element. The card element represents the current weather information.
 
