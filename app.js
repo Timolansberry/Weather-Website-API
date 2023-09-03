@@ -22,7 +22,7 @@ addEventOnElements(searchTogglers, "click", toggleSearch);                 //add
 
 
 
-/* SEARCH INTEGRATION */
+/* SEARCH INTEGRATION */ 
 const searchField = document.querySelector("[data-search-field]");         //selects the DOM elements related to the search field and search results, including searchField and searchResult
 const searchResult = document.querySelector("[data-search-result]");
 
