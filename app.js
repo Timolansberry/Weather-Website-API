@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 
 import { fetchData, url } from "./api.js";                            // code imports two modules: fetchData and url from a file named "api.js"
 import * as module from "./module.js";                                // imports all exports from a file named "module.js" and stores them in a variable named "module"
