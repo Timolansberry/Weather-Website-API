@@ -3,7 +3,7 @@
 const api_key = "3a40de66eab3048053e9f94309acfe1d"; //declared api constant
 
 /**
- * Fetch data from server 
+ * Fetch data from server  
  * @param {string} URL API url              //anotation to say that URL is a string
  * @param {Function} callback callback      //anotation to say that callback is a function
  */
