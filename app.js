@@ -5,7 +5,7 @@ import * as module from "./module.js";                                // imports
 
 /**
  * Add event listener on multiple elements
- * @param {NodeList} elements Eelements node array
+ * @param {NodeList} elements Eelements node array 
  * @param {string} eventType Event Type e.g.: "click", "mouseover"
  * @param {Function} callback Callback function
  */
