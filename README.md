@@ -1,4 +1,4 @@
-
+ 
 # Thy Weather Website   
 
 Weather website using API. Using search feature to select city provides live weather conditions such as current temperature in both celsius and farenheit, 5 day forecast, hourly temperature, sunrise and sunset and offers the option to select 3 favorite cities
